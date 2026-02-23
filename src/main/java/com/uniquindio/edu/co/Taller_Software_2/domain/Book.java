@@ -34,6 +34,27 @@ public class Book {
     public Book() {
     }
 
+    // ==== Métodos ==== //
+
+   
+
+    /**
+     * Método para agregar reseñas
+     */
+    public void agregarReseña(Reseña reseña){
+        reseñas.add(reseña);
+        reseña.setBook(this);
+    }
+
+    /**
+     * Método para agregar una calificación
+     */
+    public void agregarCalificacion(Calificacion calificacion){
+        calificaciones.add(calificacion);
+        calificacion.setBook(this);
+    }
+
+    // ==== Getters y Setters == //
     public Long getId() {
         return id;
     }
@@ -88,5 +109,18 @@ public class Book {
 
     public void setCalificaciones(List<Calificacion> calificaciones) {
         this.calificaciones = calificaciones;
+    }
+
+    // ==== equals y hashCode
+
+    /**
+     * equals basado en id
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return id != null && id.equals(book.id);
     }
 }
