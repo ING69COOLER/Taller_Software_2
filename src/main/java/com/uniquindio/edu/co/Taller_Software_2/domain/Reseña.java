@@ -20,6 +20,8 @@ public class Reseña {
     public Reseña() {
     }
 
+    // ==== Getters y  Setters ==== //
+
     public Long getId() {
         return id;
     }
@@ -33,6 +35,9 @@ public class Reseña {
     }
 
     public void setDescripcion(String descripcion) {
+        if (descripcion == null || descripcion.isBlank()){
+            throw new IllegalArgumentException("La descripción no puede estar vacía");
+        }
         this.descripcion = descripcion;
     }
 
@@ -42,5 +47,26 @@ public class Reseña {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    // ==== equals y hashCode ====  //
+
+    /**
+     * equals basado en el id
+     */
+    @Override
+    public boolean equals (Object o){
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Reseña reseña = (Reseña) o;
+        return id != null && id.equals(reseña);
+    }
+
+    /**
+     * hashCode
+     */
+    @Override
+    public int hashCode(){
+        return getClass().hashCode();
     }
 }
