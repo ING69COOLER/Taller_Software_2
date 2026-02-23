@@ -41,14 +41,6 @@ public class Reseña {
         this.descripcion = descripcion;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
     // ==== equals y hashCode ====  //
 
     /**
