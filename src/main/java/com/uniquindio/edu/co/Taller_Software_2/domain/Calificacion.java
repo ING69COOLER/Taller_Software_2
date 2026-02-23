@@ -20,6 +20,8 @@ public class Calificacion {
     public Calificacion() {
     }
 
+    // ==== Getters y Setters ==== //
+
     public Long getId() {
         return id;
     }
@@ -33,6 +35,9 @@ public class Calificacion {
     }
 
     public void setPuntaje(int puntaje) {
+        if (puntaje < 1 || puntaje > 5){
+            throw new IllegalArgumentException("El puntaje debe estar entre 1 y 5");
+        }
         this.puntaje = puntaje;
     }
 
@@ -42,5 +47,26 @@ public class Calificacion {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    // ==== equals y hashCode ==== //
+
+    /**
+     * equals basado en el id
+     */
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if(!(o instanceof  Calificacion)) return false;
+        Calificacion calificacion = (Calificacion) o;
+        return id != null && id.equals(calificacion.id);
+    }
+
+    /**
+     * hashCode
+     */
+    @Override
+    public int hashCode(){
+        return getClass().hashCode();
     }
 }
