@@ -46,7 +46,7 @@ public class Book {
      */
     public void agregarReseña(Reseña reseña){
         reseñas.add(reseña);
-        reseña.setBook(this);
+       
     }
 
     /**
