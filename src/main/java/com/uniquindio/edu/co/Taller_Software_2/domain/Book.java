@@ -31,12 +31,15 @@ public class Book {
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Calificacion> calificaciones = new ArrayList<>();
 
+    @Transient
+    private double porcentajeSimilitud;
+
     public Book() {
     }
 
     // ==== Métodos ==== //
 
-   
+
 
     /**
      * Método para agregar reseñas
@@ -109,6 +112,14 @@ public class Book {
 
     public void setCalificaciones(List<Calificacion> calificaciones) {
         this.calificaciones = calificaciones;
+    }
+
+    public double getPorcentajeSimilitud() {
+        return porcentajeSimilitud;
+    }
+
+    public void setPorcentajeSimilitud(double porcentajeSimilitud) {
+        this.porcentajeSimilitud = porcentajeSimilitud;
     }
 
     // ==== equals y hashCode
