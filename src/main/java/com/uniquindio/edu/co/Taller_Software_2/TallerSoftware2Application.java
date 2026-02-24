@@ -30,7 +30,7 @@ public class TallerSoftware2Application implements CommandLineRunner {
 		dto.setTitulo("Cien Años de Soledad");
 		dto.setAutor("Gabriel Garcia Marquez");
 		dto.setAnoPublicacion(LocalDate.of(1967, 5, 30));
-		dto.setIsbn("123456");
+		dto.setIsbn("1234567");
 
 		BookDTO guardado = bookService.crearLibro(dto);
 
