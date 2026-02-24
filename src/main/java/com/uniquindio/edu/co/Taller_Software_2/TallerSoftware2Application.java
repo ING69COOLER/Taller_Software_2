@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 @SpringBootApplication
@@ -32,8 +33,13 @@ public class TallerSoftware2Application implements CommandLineRunner {
 		dto.setAnoPublicacion(LocalDate.of(1967, 5, 30));
 		dto.setIsbn("123456");
 
-		BookDTO guardado = bookService.crearLibro(dto);
+        BookDTO guardado = null;
+        try {
+            guardado = bookService.crearLibro(dto);
+        } catch (SQLException e) {
+			System.out.println("Libro ya existente en la base de datos, por favor guarda otro");
+        }
 
-		System.out.println("Libro guardado con ID: " + guardado.getId());
+        System.out.println("Libro guardado con ID: " + guardado.getId());
 	}
 }
