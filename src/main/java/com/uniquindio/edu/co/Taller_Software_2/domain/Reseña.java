@@ -41,6 +41,14 @@ public class Reseña {
         this.descripcion = descripcion;
     }
 
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
     // ==== equals y hashCode ====  //
 
     /**
@@ -51,7 +59,7 @@ public class Reseña {
         if (this == o) return true;
         if (!(o instanceof Reseña)) return false;
         Reseña reseña = (Reseña) o;
-        return id != null && id.equals(reseña);
+        return id != null && id.equals(reseña.id);
     }
 
     /**
