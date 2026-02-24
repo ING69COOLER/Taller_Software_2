@@ -134,4 +134,12 @@ public class Book {
         Book book = (Book) o;
         return id != null && id.equals(book.id);
     }
+
+    /**
+     * hashCode
+     */
+    @Override
+    public int hashCode(){
+        return getClass().hashCode();
+    }
 }

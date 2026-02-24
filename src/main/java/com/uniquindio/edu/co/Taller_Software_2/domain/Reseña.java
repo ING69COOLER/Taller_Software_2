@@ -49,7 +49,7 @@ public class Reseña {
     @Override
     public boolean equals (Object o){
         if (this == o) return true;
-        if (!(o instanceof Book)) return false;
+        if (!(o instanceof Reseña)) return false;
         Reseña reseña = (Reseña) o;
         return id != null && id.equals(reseña);
     }

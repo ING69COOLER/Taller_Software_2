@@ -52,21 +52,21 @@ public class  BookDTO {
         this.isbn = isbn;
     }
 
-    public BookDTO toDTO(Book book) {
-        BookDTO dto = new BookDTO();
-        dto.setId(book.getId());
-        dto.setTitulo(book.getTitulo());
-        dto.setAutor(book.getAutor());
-        dto.setAnoPublicacion(book.getAnoPublicacion());
-        dto.setIsbn(book.getIsbn());
-        return dto;
-    }
+ //   public BookDTO toDTO(Book book) {
+ //       BookDTO dto = new BookDTO();
+ //       dto.setId(book.getId());
+ //       dto.setTitulo(book.getTitulo());
+ //       dto.setAutor(book.getAutor());
+ //       dto.setAnoPublicacion(book.getAnoPublicacion());
+  //      dto.setIsbn(book.getIsbn());
+  //      return dto;
+    //}
 
-    public List<BookDTO> toDTOList(List<Book> books) {
-        return books.stream()
-                .map(this::toDTO)
-                .toList();
-    }
+    //public List<BookDTO> toDTOList(List<Book> books) {
+    //    return books.stream()
+     //           .map(this::toDTO)
+    //            .toList();
+    //}
 }
 
 

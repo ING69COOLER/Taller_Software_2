@@ -1,8 +1,8 @@
 package com.uniquindio.edu.co.Taller_Software_2.service;
 
-import org.springframework.stereotype.Service;
+import com.uniquindio.edu.co.Taller_Software_2.dto.BookDTO;
 
-@Service
-public class BookService {
+public interface BookService {
 
+    BookDTO crearLibro(BookDTO book);
 }

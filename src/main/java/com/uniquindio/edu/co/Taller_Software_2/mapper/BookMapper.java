@@ -10,5 +10,12 @@ public interface BookMapper {
 
     // ======= DTO → ENTITY =======
 
+    Book toEntity(BookDTO bookDTO);
+
+    List<Book> toEntityList(List<BookDTO> dtos);
+
     public List<Book> getBooks(List<BookDTO> listarLibros);
+
+    BookDTO toDTO(Book book);
+
 }

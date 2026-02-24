@@ -29,10 +29,14 @@ public class SearchService {
         }
 
         //Similitud por Año 10%
-        if(libro.getAnoPublicacion() != null && libro.getAnoPublicacion().getYear() ==
-                Integer.parseInt(textoBusqueda.replaceAll("[^{0-9]", ""))){
-            porcentajeSimilitud += 0.1;
-        }
+       try {
+           int año = Integer.parseInt(textoBusqueda.replaceAll("[^0-9]", ""));
+           if(libro.getAnoPublicacion() != null && libro.getAnoPublicacion().getYear() == año){
+               porcentajeSimilitud += 0.1;
+           }
+       } catch (NumberFormatException e){
+
+       }
 
         return porcentajeSimilitud;
     }
