@@ -1,23 +1,17 @@
 package com.uniquindio.edu.co.Taller_Software_2;
 
-import com.uniquindio.edu.co.Taller_Software_2.domain.Book;
-import com.uniquindio.edu.co.Taller_Software_2.dto.BookDTO;
-import com.uniquindio.edu.co.Taller_Software_2.service.BookService;
+import com.uniquindio.edu.co.Taller_Software_2.controller.ConsoleController;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import java.sql.SQLException;
-import java.time.LocalDate;
 
 @SpringBootApplication
 public class TallerSoftware2Application implements CommandLineRunner {
 
-	private final BookService bookService;
+	private final ConsoleController consoleController;
 
-	public TallerSoftware2Application(BookService bookService) {
-		this.bookService = bookService;
+	public TallerSoftware2Application(ConsoleController consoleController) {
+		this.consoleController = consoleController;
 	}
 
 	public static void main(String[] args) {
@@ -26,20 +20,6 @@ public class TallerSoftware2Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-
-		BookDTO dto = new BookDTO();
-		dto.setTitulo("Cien Años de Soledad");
-		dto.setAutor("Gabriel Garcia Marquez");
-		dto.setAnoPublicacion(LocalDate.of(1967, 5, 30));
-		dto.setIsbn("1234567");
-
-        BookDTO guardado = null;
-        try {
-            guardado = bookService.crearLibro(dto);
-        } catch (SQLException e) {
-			System.out.println("Libro ya existente en la base de datos, por favor guarda otro");
-        }
-
-        System.out.println("Libro guardado con ID: " + guardado.getId());
+		consoleController.iniciar();
 	}
 }

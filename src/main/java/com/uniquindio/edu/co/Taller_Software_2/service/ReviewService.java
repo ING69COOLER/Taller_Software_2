@@ -4,7 +4,10 @@ import com.uniquindio.edu.co.Taller_Software_2.domain.Book;
 import com.uniquindio.edu.co.Taller_Software_2.domain.Calificacion;
 import com.uniquindio.edu.co.Taller_Software_2.domain.Reseña;
 import com.uniquindio.edu.co.Taller_Software_2.infraestructure.LibroRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class ReviewService {
     private final LibroRepository libroRepository;
 
@@ -12,8 +15,9 @@ public class ReviewService {
         this.libroRepository = libroRepository;
     }
 
-    //Metodo para agregar una reseña
-    public void agregarReseña(long id, String descripcion){
+    // Metodo para agregar una reseña
+    @Transactional
+    public void agregarReseña(long id, String descripcion) {
         Book libro = libroRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Libro no encontrado"));
         Reseña reseña = new Reseña();
@@ -22,7 +26,8 @@ public class ReviewService {
         libroRepository.save(libro);
     }
 
-    //Metodo para agregar una calificacion
+    // Metodo para agregar una calificacion
+    @Transactional
     public void agregarCalificacion(Long libroId, int puntaje) {
 
         Book libro = libroRepository.findById(libroId)
