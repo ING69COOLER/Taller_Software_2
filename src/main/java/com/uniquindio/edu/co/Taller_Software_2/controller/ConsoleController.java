@@ -38,9 +38,9 @@ public class ConsoleController {
         this.libroRepository = libroRepository;
     }
 
-    // ================================================================
+   
     // PUNTO DE ENTRADA: Menú Principal
-    // ================================================================
+    
 
     public void iniciar() {
         boolean salir = false;
@@ -62,9 +62,9 @@ public class ConsoleController {
         }
     }
 
-    // ================================================================
+   
     // MENÚ PRINCIPAL – Impresión
-    // ================================================================
+
 
     private void imprimirMenuPrincipal() {
         System.out.println("╔═══════════════════════════════════════╗");
@@ -79,9 +79,8 @@ public class ConsoleController {
         System.out.print("Selecciona una opción: ");
     }
 
-    // ================================================================
+     
     // FLUJO 1: Búsqueda Simple
-    // ================================================================
 
     private void flujosBusquedaSimple() {
         System.out.println("\n--- BÚSQUEDA SIMPLE ---");
@@ -105,9 +104,7 @@ public class ConsoleController {
         seleccionarYMostrarDetalle(lista);
     }
 
-    // ================================================================
     // FLUJO 2: Búsqueda Combinada
-    // ================================================================
 
     private void flujosBusquedaCombinada() {
         System.out.println("\n--- BÚSQUEDA COMBINADA ---");
@@ -142,9 +139,7 @@ public class ConsoleController {
         seleccionarYMostrarDetalle(lista);
     }
 
-    // ================================================================
     // FLUJO 3: Agregar Nuevo Libro
-    // ================================================================
 
     private void flujosAgregarLibro() {
         System.out.println("\n--- AGREGAR NUEVO LIBRO ---");
@@ -194,9 +189,7 @@ public class ConsoleController {
         }
     }
 
-    // ================================================================
     // RESULTADOS NUMERADOS
-    // ================================================================
 
     private void imprimirResultadosNumerados(List<Book> libros) {
         System.out.println("\n══════ RESULTADOS ══════");
@@ -213,9 +206,7 @@ public class ConsoleController {
         System.out.println("════════════════════════\n");
     }
 
-    // ================================================================
     // SELECCIÓN DE LIBRO Y VISTA DETALLADA
-    // ================================================================
 
     private void seleccionarYMostrarDetalle(List<Book> libros) {
         System.out.print("Ingresa el número del libro para ver su detalle (0 para volver): ");
@@ -242,9 +233,7 @@ public class ConsoleController {
         menuAccionesLibro(libroId);
     }
 
-    // ================================================================
     // FLUJO 4: Mostrar Todos los Libros
-    // ================================================================
 
     private void flujosListarTodosLosLibros() {
         System.out.println("\n--- TODOS LOS LIBROS ---");
@@ -272,9 +261,7 @@ public class ConsoleController {
         seleccionarYMostrarDetalle(libros);
     }
 
-    // ================================================================
     // CONSULTA DETALLADA DEL LIBRO (con reseñas y calificaciones)
-    // ================================================================
 
     private void mostrarDetalleCompleto(Long libroId) {
         // Dos queries separadas para evitar MultipleBagFetchException
@@ -325,9 +312,7 @@ public class ConsoleController {
         System.out.println("╚══════════════════════════════════════════════════════╝\n");
     }
 
-    // ================================================================
     // SUBMENÚ: ACCIONES SOBRE EL LIBRO SELECCIONADO
-    // ================================================================
 
     private void menuAccionesLibro(Long libroId) {
         boolean regresar = false;
@@ -351,9 +336,7 @@ public class ConsoleController {
         }
     }
 
-    // ================================================================
     // FLUJO: Agregar Reseña
-    // ================================================================
 
     private void flujosAgregarReseña(Long libroId) {
         System.out.println("\n--- AGREGAR RESEÑA ---");
@@ -376,9 +359,7 @@ public class ConsoleController {
         }
     }
 
-    // ================================================================
     // FLUJO: Agregar Calificación
-    // ================================================================
 
     private void flujosAgregarCalificacion(Long libroId) {
         System.out.println("\n--- AGREGAR CALIFICACIÓN ---");
@@ -404,9 +385,7 @@ public class ConsoleController {
         }
     }
 
-    // ================================================================
     // UTILIDADES
-    // ================================================================
 
     private String truncar(String texto, int maxLen) {
         if (texto == null)
